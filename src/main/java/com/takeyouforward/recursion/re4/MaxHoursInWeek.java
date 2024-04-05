@@ -10,7 +10,7 @@ public class MaxHoursInWeek {
                 {10,1,6},
                 {8,3,7}
         };
-        System.out.println(getMaxHoursInWeek(array.length - 1, array, getLastRowMaxHours(array)));
+        System.out.println(getLastRowMaxHours(array));
     }
 
     public static int getMaxHoursInWeek(int index, int[][] array, int lastColumnIndex){
@@ -30,7 +30,7 @@ public class MaxHoursInWeek {
             for (int j = 0; j < array[index].length; j++) {
                 if (j != lastColumnIndex) {
 
-                    int thisDay = array[index][j] + getMaxHoursInWeek(index - 1, array, lastColumnIndex);
+                    int thisDay = array[index][j] + getMaxHoursInWeek(index - 1, array, j);
                     maxValue = Math.max(maxValue, thisDay);
                 }
             }
